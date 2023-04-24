@@ -43,7 +43,7 @@ setup(
     packages=find_packages(include=['food', 'food.*']),
     test_suite='tests',
     tests_require=test_requirements,
-    url='https://github.com/atabekdemurtaza/food',
+    url='https://github.com/atabekdemurtaza/DeliverApp',
     version='0.1.0',
     zip_safe=False,
 )
