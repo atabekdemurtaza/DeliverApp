@@ -25,4 +25,26 @@ class IceCreamOrder(models.Model):
         #Result will be
     """
 
+
+class IceOrder(models.Model):
+    class Flavors(models.TextChoices):
+        CHOCOLATE = 'ch', 'Chocolate'
+        VANILLA = 'vn', 'Vanilla'
+        STRAWBERYY = 'st', 'Strawberry'
+        CHUNKY_MUNKY = 'cm', 'Chunky Munky'
     
+    flavor = models.CharField(
+        max_length=2,
+        choices=Flavors.choices
+    )
+
+    def __str__(self) -> str:
+        return self.flavor
+
+class FlavorReview(models.Model):
+    review = models.CharField(max_length=255)
+    pub_date = models.DateTimeField(auto_now_add=True)
+
+
+    def __str__(self) -> str:
+        return self.review
