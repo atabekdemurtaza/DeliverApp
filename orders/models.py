@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 class IceCreamOrder(models.Model):
     FLAVOR_CHOCOLATE = 'ch'
@@ -41,10 +42,19 @@ class IceOrder(models.Model):
     def __str__(self) -> str:
         return self.flavor
 
+
+class PublishedManager(models.Manager):
+    
+    def published(self):
+        return self.filter(pub_date__lte=timezone.now())
+
+
 class FlavorReview(models.Model):
     review = models.CharField(max_length=255)
-    pub_date = models.DateTimeField(auto_now_add=True)
+    pub_date = models.DateTimeField()
+    objects = PublishedManager()
 
-
+    #add our custom model manager
     def __str__(self) -> str:
         return self.review
+

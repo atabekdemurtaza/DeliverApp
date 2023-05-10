@@ -19,5 +19,5 @@ production.py Это файл настроек, используемый ваш�
 
 Настроить  python manage.py shell --settings=config.settings.local
 
-Запустить  python manage.py runserver --settings=config.settings.local
+Запустить  python manage.py runserver --settings=config.settings.local  
 

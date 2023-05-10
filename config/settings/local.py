@@ -8,12 +8,18 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': root('db.sqlite3'),
+        'ATOMIC_REQUESTS': True,
     }
 }
 
 INSTALLED_APPS += [
+    # 3rd-party apps
     'debug_toolbar',
+    'rest_framework',
+
+    # Local apps
     'orders',
+    'flavor',
 ]
 
 MIDDLEWARE = [
